@@ -1,0 +1,94 @@
+*bdelete-buffers.txt*                     A plugin to enhance to close buffers
+
+Author: kyoh86 <me@kyoh86.dev>
+License: MIT license
+
+===============================================================================
+CONTENTS                                            *bdelete-buffers-contents*
+
+USAGE                                               |bdelete-buffers-usage|
+  FUNCTIONS                                         |bdelete-buffers-function|
+  COMMANDS                                          |bdelete-buffers-command|
+  VARIABLES                                         |bdelete-buffers-variable|
+
+===============================================================================
+USAGE                                                  *bdelete-buffers-usage*
+
+*bdelete-buffers* provides functions to close buffers. Example: >
+    require("bdelete").menu({force = true})
+<
+
+-------------------------------------------------------------------------------
+FUNCTIONS                                           *bdelete-buffers-function*
+
+                                         *bdelete-params* *bdelete-parameters*
+
+Some functions receives a |Dictionary| has keys below.
+
+- `force`
+    A |Boolean| flag to wipe forcely the buffers which has changed.
+    Default: false
+
+- `keep_layout`
+    A |Boolean| flag to preserve window layout.
+    Default: false
+
+- `filter`
+    A |function| to filter buffers.
+    It receives a buffer object (see |getbufinfo()|) and return true if the
+    buffer should be wiped.
+    Default: nil (no buffer will be filtered out)
+
+- `debug`
+    UNIMPLEMENTED.
+    A |Boolean| flag to show log verbosely for debugging.
+
+                                                            *bdelete.select()*
+bdelete.select({params})
+
+    Lets you interactively select which buffers to wipe.
+
+                                                              *bdelete.menu()*
+bdelete.menu({params})
+
+    Open a menu to choose one of behaviors below.
+
+                                                           *bdelete.current()*
+bdelete.current({params})
+
+    Wipe a buffer in the current window.
+
+                                                             *bdelete.other()*
+bdelete.other({params})
+
+    Wipe buffers other of the one in the current window.
+
+                                                            *bdelete.hidden()*
+bdelete.hidden({params})
+
+    Wipe buffers loaded but currently not displayed in any window.
+    See |hidden-buffer| for details.
+
+                                                          *bdelete.nameless()*
+bdelete.nameless({params})
+
+    Wipe buffers having no name.
+
+                                                               *bdelete.all()*
+bdelete.all({params})
+
+    Wipe all buffers.
+
+
+-------------------------------------------------------------------------------
+COMMANDS                                             *bdelete-buffers-command*
+
+THIS PLUGIN NEVER DEFINES ANY COMMANDS.
+
+
+-------------------------------------------------------------------------------
+VARIABLE                                            *bdelete-buffers-variable*
+
+TODO (NOT DOCUMENTED YET)
+
+vim:filetype=help
